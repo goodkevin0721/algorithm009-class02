@@ -1,0 +1,40 @@
+public bool IsAnagram(string s, string t)
+    {
+        if (s.Length != t.Length)
+        {
+            return false;
+        }
+        Dictionary<char, int> tempDic = new Dictionary<char, int>();
+
+        for (int i = 0; i < s.Length; i++)
+        {
+            if (tempDic.ContainsKey(s[i]))
+            {
+                tempDic[s[i]]++;
+            }
+            else
+            {
+                tempDic.Add(s[i], 1);
+            }
+        }
+
+        for (int j = 0; j < t.Length; j++)
+        {
+            if (tempDic.ContainsKey(t[j]))
+            {
+                if (tempDic[t[j]] > 1)
+                {
+                    tempDic[t[j]]--;
+                }
+                else
+                {
+                    tempDic.Remove(t[j]);
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+        return true;
+    }

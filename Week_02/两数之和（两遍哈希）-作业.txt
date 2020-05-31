@@ -1,0 +1,30 @@
+//两遍哈希表
+public int[] TwoSum1(int[] nums, int target)
+    {
+        Dictionary<int, int> tempDict = new Dictionary<int, int>();
+
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (tempDict.ContainsKey(nums[i]))
+            {
+                if (nums[i] * 2 == target)
+                {
+                    return new int[] { i, tempDict[nums[i]] };
+                }
+                else
+                {
+                    tempDict.Add(nums[i],i);
+                }
+            }
+        }
+
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (tempDict.ContainsKey(target - nums[i]))
+            {
+                return new int[] { i, tempDict[target - nums[i]] };
+            }
+        }
+
+        return new int[] { 0, 0 };
+    }

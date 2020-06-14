@@ -1,0 +1,20 @@
+ public int FindContentChildren(int[] g, int[] s)
+    {
+        if(g.Length == 0 || s.Length == 0)
+            return 0;
+        Array.Sort(g);
+        Array.Sort(s);
+        int childen = 0;
+        int cookie = 0;
+        while(childen < g.Length && cookie < s.Length)
+        {
+            if(s[cookie] >= g[childen])
+            {
+                childen ++;
+            }
+
+            cookie ++;         
+        }
+
+        return childen;
+    }

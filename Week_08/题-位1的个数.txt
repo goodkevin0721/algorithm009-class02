@@ -1,0 +1,14 @@
+ public int HammingWeight(uint n) {
+        int num = 0;
+        int value = 1;
+        for(int i = 0;i< 32;i++)
+        {
+            if((n&value) != 0)
+            {
+                num++;
+            }
+            value <<= 1;
+        }
+
+        return num;
+    }

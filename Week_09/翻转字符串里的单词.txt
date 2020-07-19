@@ -1,0 +1,14 @@
+  public string ReverseWords(string s) {
+ string[] words = s.Split(' ');
+
+        string reversStr = "";
+
+        for (int i = words.Length -1; i >= 0; i--)
+        {
+            string tempS = words[i].Trim();
+
+            reversStr += string.IsNullOrEmpty(tempS) ? "" : " " + tempS;
+        }
+
+        return reversStr.Trim();
+    }
